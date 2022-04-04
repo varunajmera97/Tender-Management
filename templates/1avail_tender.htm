@@ -1,0 +1,12 @@
+<html>
+<head>
+ 	<link rel="stylesheet" href="\static\css\mycss.css">
+</head>
+	<frameset rows="100px,*"> 
+		<frame src="navbar" frameborder="0" name="normal" noresize="noresize">
+		<frameset cols="20%,80%">
+			<frame src="{% url 'col1' %}" frameborder="0" noresize="noresize">
+			<frame src="{% url 'col2' %}" frameborder="0" name="options" noresize="noresize">
+		</frameset>
+	</frameset>
+</head>

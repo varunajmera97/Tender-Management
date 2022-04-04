@@ -1,0 +1,58 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+
+  <!-- JAVASCRIPT code for reCaptcha -->
+  <script src='https://www.google.com/recaptcha/api.js'>
+  </script>
+  <script>
+    var allowSubmit = false;
+
+    function capcha_filled()
+    {
+      allowSubmit = true;
+    }
+
+    function check_if_capcha_is_filled(e)
+    {
+      if(allowSubmit) 
+        return true;
+      else
+        alert('Fill in the capcha!'); 
+    }
+  </script>
+</head>
+<body>
+
+{% include '1navbar.html' %}
+    <!--         closing navbar  -->
+  <div class="body_home">
+    <h3 class="bottom-border">Sign up (only for contractor)</h3>
+    <p class="font1"> Enter the appopriate details below to sign up. </p><br>
+      <form action="contract_check" method="post">
+        <input class="textfield width1" placeholder="Email" required name="email" type="email">
+        <input class="textfield width1" placeholder="Password" required name="pwrd" type="password">
+        <input class="textfield width1" placeholder="Confirm password" required name="pwrd1" type="password">
+        <input class="textfield width1" placeholder="Company Name" required name="com_name">
+        <input class="textfield width1" placeholder="Name" required name="name">
+        <p class="bottom-border" style="padding-top:10px;padding-left:18px;padding-bottom:10px;font-size:19px;color:#808080">State, City: Karnataka, Bangalore</p>
+        <input class="textfield width1" placeholder="Contact Number" required name="phno" type="number"><br>
+        <br>
+
+          <!-- Important reCAPTCHA code -->
+        <div class="g-recaptcha" data-sitekey="6Lck9CoUAAAAAEMNenokRQJhclT6g-2ts1JnU4Sb" data-callback="capcha_filled" style="padding-left:10px;"></div>
+        <!-- CODE ENDS HERE -->
+        <p><input type="checkbox" name="cb" value="1">I agree to the <b>Tenders</b> India Terms and Conditions<br></p>
+        <button class="btn" style="width:10%" type="submit" onclick="check_if_capcha_is_filled()"><i class="fa fa-paper-plane"></i> Submit</button>
+      </form>
+      {% if value == 1 %}
+      <p style="font-size:25px"> {{ result }} </p>
+      {% endif %}
+    <br>
+  </div>
+  <br>
+
+  {% include '1footer.html' %}
+  
+  </body>
+</html>

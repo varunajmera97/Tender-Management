@@ -1,0 +1,44 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+  <style>
+  </style>
+</head>
+	<div class="rs" style="height:200%">
+		{% if diction.result == "false" %}
+			<center>
+				<p class="font4">No Feedbacks available</p>
+			</center>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+		{% else %}
+			{% for i,j in diction.items %}
+			{% if j.uname != null %}
+			<center>
+				<div class="login" style="width:75%">
+					<p style="margin-top:40px;font-size:21px"><b> Name:</b> {{ j.uname }}
+					<br>
+					<br>
+					<b>Subject:</b> {{ j.subject }}
+					<br>
+					<br>
+					<b>Message:</b> {{ j.message }}
+					<br>
+					<br>
+				</div>
+			{% endif %}
+			{% endfor %}
+			<br>
+			<br>
+		{% endif %}
+		<br>
+		<br>
+	</div>
+</html>

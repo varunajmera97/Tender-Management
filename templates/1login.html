@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/css/mycss.css">
+</head>
+<body>
+
+{% include '1navbar.html' %}
+    <!--         closing navbar  -->
+  <center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="login">
+  <h3 class="bottom-border">Login</h3>
+      <form action="l_check" method="post">
+         <input class="textfield width2" placeholder="E-mail" required name="email">
+         <input class="textfield width2" placeholder="Password" required name="pass" type="password">
+         <center>
+           <button class="btn" type="submit"><i class="fa fa-paper-plane"></i> Submit </button><br><br>
+           <a href="signup" style="text-decoration:none"><p>Do not have an account? Click here to sign up</p></a>
+        </center>
+      </form>
+      <br>
+  </div>
+  {% if diction.result != "null" %}
+  <p class="font1" style="color:#808080"> {{ diction.result }} </p>
+  {% endif %}
+  </center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  {% include '1footer.html' %}
+</body>
+</html>

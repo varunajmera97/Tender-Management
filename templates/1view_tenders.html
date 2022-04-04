@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+  <style>
+  </style>
+</head>
+	<div class="rs">
+		{% if diction.result == "false" %}
+			<center>
+				<p class="font4">No Tenders available</p>
+			</center>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+		{% else %}
+			{% for i,j in diction.items %}
+			{% if j.prj_name != null %}
+			<center>
+				<div class="login" style="width:75%">
+					<div class="try">
+						<center>
+							<p style="color:white;font-size:28px;padding:25px"> {{ j.prj_name }} </p>
+						</center>
+					</div>
+					<p style="margin-top:40px;font-size:21px"><b> Description:</b> {{ j.prj_desc }}
+					<br>
+					<br>
+					<b>Registeration price:</b> RS. {{ j.reg_price }}
+					<br>
+					<br>
+					<center>
+						<br>
+						<br>
+					</center>
+				</div>
+			</center>
+			{% endif %}
+			{% endfor %}
+			<br>
+			<br>
+		{% endif %}
+		<br>
+		<br>
+	</div>
+</html>

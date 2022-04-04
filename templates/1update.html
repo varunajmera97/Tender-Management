@@ -1,0 +1,24 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+</head>
+<body>
+
+  <div class="body_home">
+    <h3 class="bottom-border">Update your details </h3><br>
+      <form action="save_update" method="post">
+        <input class="textfield width1" value="{{ diction.email }}" required name="email" type="email">
+        <input class="textfield width1" value="{{ diction.c_name }}" required name="com_name">
+        <input class="textfield width1" value="{{ diction.uname }}" required name="name">
+        <p class="bottom-border" style="padding-top:10px;padding-left:18px;padding-bottom:10px;font-size:19px;color:#808080">State, City: Karnataka, Bangalore</p>
+        <input class="textfield width1" value="{{ diction.phno }}" required name="phno" type="number"><br>
+        <button class="btn" style="width:10%" type="submit"><i class="fa fa-paper-plane"></i> Submit</button>
+        <br>
+      </form>
+    {% if diction.result != "true" %}
+      <p style="font-size:20px"> {{ diction.result }} </p>
+    {% endif %}
+  </div>
+  <br>  
+  </body>
+</html>

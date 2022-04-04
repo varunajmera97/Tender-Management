@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/mycss.css">
+  </head>
+  <body>
+
+    {% if session.set == 0 %}
+      {% include '1navbar.html' %}
+    {% elif session.set == 1 %}
+      {% include '1con_navbar.html' %}
+    {% elif session.set == 2 %}
+      {% include '1req_navbar.html' %}
+    {% endif %}
+    
+    <!--         closing navbar  -->
+    <div class="body_home">
+      <center>
+      <p class="font5"> Search for a project you want to bid for.. </p>
+        <form action="bidsearch" method="post">
+          <input class="searchbar" type="text" name="search" placeholder="Search"  style="margin-top:25px">
+        </form>
+        {% if diction.result == "false!" %}
+          <p class="font1"> Such a project does not exist. </p>
+        {% elif diction.result == "true" %}
+        {% for i,j in diction.items %}
+          {% if j.prj_name != null %}
+            <center>
+              <div class="login" style="width:75%">
+                <div class="try">
+                  <center>
+                    <p style="color:white;font-size:28px;padding:25px"> {{ j.prj_name }} </p>
+                  </center>
+                </div>
+                <p style="margin-top:40px;font-size:21px"><b> Description:</b> {{ j.prj_desc }}
+                <br>
+                <br>
+                <b>Registeration price:</b> RS. {{ j.reg_price }}
+                <br>
+                <br>
+                <center>
+                  <a href="/tender_bid" style="text-decoration:none" target="_normal">
+                  <button class="btn" type="submit" style="width:20%;font-size:20px"<i class="fa fa-paper-plane"></i> Place bid </button>
+                  </a>
+                  <br><br>
+                </center>
+              </div>
+              <br>
+              <br>
+            </center>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      </center>
+    </div>

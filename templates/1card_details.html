@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Credit Card Validation Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+
+<body>
+        <div class="creditCardForm">
+            <div class="heading">
+                <h1>Confirm Bid</h1>
+            </div>
+            <div class="payment">
+                <form action="bid_confirm" method="post">
+                    <div class="form-group owner">
+                        <label for="owner">Owner</label>
+                        {% if diction.result == "true" %}
+                        <input type="text" class="form-control" id="owner" name="owner_name" value="{{ diction.card_owner }}">
+                        {% else %}
+                        <input type="text" class="form-control" id="owner" name="owner_name">
+                        {% endif %}
+                    </div>
+                    <div class="form-group CVV">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" name="cvv">
+                    </div>
+                    <div class="form-group" id="card-number-field">
+                        <label for="cardNumber">Card Number</label>
+                        {% if diction.result == "true" %}
+                        <input type="text" class="form-control" id="cardNumber" name="card_number" value="{{ diction.card_number }}">
+                        {% else %}
+                        <input type="text" class="form-control" id="cardNumber" name="card_number">
+                        {% endif %}
+                    </div>
+                    <div class="form-group" id="expiration-date">
+                        <label>Expiration Date</label>
+                        <select name="month">
+                            {% if diction.result == "true" %}
+                            <option value="{{ diction.exp_month }}">{{ diction.month }}</option>
+                            {% else %}
+                            <option value="01">January</option>
+                            <option value="02">February </option>
+                            <option value="03">March</option>
+                            <option value="04">April</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                            {% endif %}
+                        </select>
+                        <select name="year">
+                            {% if diction.result == "true" %}
+                            <option value="{{ diction.exp_year }}"> 20{{diction.exp_year}}</option>
+                            {% else %}
+                            <option value="17"> 2017</option>
+                            <option value="18"> 2018</option>
+                            <option value="19"> 2019</option>
+                            <option value="20"> 2020</option>
+                            <option value="21"> 2021</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                    <div class="form-group" id="credit_cards">
+                        <img src="/static/img/visa.jpg" id="visa">
+                        <img src="/static/img/mastercard.jpg" id="mastercard">
+                        <img src="/static/img/amex.jpg" id="amex">
+                    </div>
+                    <div class="form-group" id="pay-now">
+                        <button type="submit" class="btn btn-default">Confirm</button>
+                    </div>
+                </form>
+                <center>
+                {% if diction.result != "false" %}
+                    {% if diction.result != "true" %}
+                        <label for="owner">{{ diction.result }}</label>
+                        <br>
+                        <a href="home" style="text-decoration:none"><label>Go back home</label></a>
+                    {% endif %}
+                {% endif %}
+                </center>
+            </div>
+        </div> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/jss/jquery.payform.min.js" charset="utf-8"></script>
+    <script src="/static/jss/script.js"></script>
+</body>
+</html>

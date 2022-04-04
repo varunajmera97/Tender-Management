@@ -1,0 +1,48 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+</head>
+<body>
+
+    {% if session.set == 0 %}
+      {% include '1navbar.html' %}
+    {% elif session.set == 1 %}
+      {% include '1con_navbar.html' %}
+    {% elif session.set == 2 %}
+      {% include '1req_navbar.html' %}
+    {% endif %}
+    <!--         closing navbar  -->
+  <div class="body_home">
+    <h3 class="bottom-border">About us</h3>
+      <p class="font2">
+        Tenders India was started as a college project which took off to reach greater heights. It was an initiative taken up by four eccentric BCA students to change the way people manage private Tenders. Tenders India aspires to be a one stop destination for companies and individuals looking to request for tenders and contractors looking to bid for the same. Private tenders in India is still a very niche market which our company wishes to tap in. We look forward to fill in the void in the private tender sector. 
+        <br><br>
+        Do you have a Tender request? Do you want a wider choice of contractors to choose from?<br>
+        OR Are you a Contractor, looking to bid for the best Tenders in the market?
+        <br><br>
+        Look nowhere else because you have come to the right place. Tenders India, Bridging gap and nurturing opportunities.  
+    </p>
+    <br>
+    <h3 class="bottom-border">The team</h3>
+    <br>
+      <div class="col l3 bottom-border">
+        <img src="\static\img\1.PNG" alt="Abir" style="width:100%">
+        <p class="font1">Abir Majumder</p>
+        <p class="font2">Front End Designer</p>
+      </div>
+      <div class="col l3 bottom-border">
+        <img src="\static\img\2.JPG" alt="Deeraj" style="width:100%">
+          <p class="font1">Deeraj Ramchandani</p>
+          <p class="font2">Chief Technical Officer</p>
+      </div>
+      <div class="col l3 bottom-border">
+        <img src="\static\img\3.PNG" alt="Shubhang" style="width:100%">
+          <p class="font1">Shubhang Kumar</p>
+          <p class="font2">Director</p>
+      </div>
+      <div class="col l3 bottom-border">
+        <img src="\static\img\4.jpg" alt="Varun" style="width:100%">
+          <p class="font1">Varun Ajmera</p>
+          <p class="font2">Database Designer</p>
+      </div>
+</div>

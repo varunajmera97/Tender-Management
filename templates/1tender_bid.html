@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/mycss.css">
+  </head>
+  <body>
+    {% include '1con_navbar.html' %}
+    <!--         closing navbar  -->
+    <div class="body_home">
+      <center>
+        {% if diction.result == "false!" %}
+          <p class="font1"> Such a project does not exist. </p>
+        {% elif diction.result == "true" %}
+        {% for i,j in diction.items %}
+          {% if j.prj_name != null %}
+            <center>
+              <div class="login" style="width:75%">
+                <div class="try">
+                  <center>
+                    <p style="color:white;font-size:28px;padding:25px"> {{ j.prj_name }} </p>
+                  </center>
+                </div>
+                <p style="margin-top:40px;font-size:21px"><b> Description:</b> {{ j.prj_desc }}
+                <br>
+                <br>
+                <b>Registeration price:</b> RS. {{ j.reg_price }}
+                <br>
+                <br>
+              </div>
+              <br>
+              <br>
+            </center>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      </center>
+      {% if diction.result23 != "null" %}
+        <center>
+          <p style="font-size:30px"> {{ diction.result23 }} </p>
+        </center>
+      {% else %}
+      <br>
+      <br>
+      <h3 class="bottom-border">Bid for a tender</h3>
+        <p class="font1"> Enter the appopriate details below to bid for the above tender.</p><br>
+          <form action="payment_gateway" method="post" enctype="multipart/form-data">
+            <input class="textfield" placeholder="Name of Organisation" required name="org_name">
+            <p class="font2" style="padding:16px;color:#808080"> <b> Upload valid company verification details </b>
+            <br>
+            <br>
+            <input type="file" name="org_file" accept=".doc, .docx, .pdf" required>
+            </p>
+            <input class="textfield" placeholder="Expected time for completion of project" required name="time" type="number">
+            <input class="textfield" placeholder="Expected cost for completion of project" required name="cost" type="number">
+            <button class="btn" style="width:10%" type="submit"><i class="fa fa-paper-plane"></i>Next</button>
+            {% if diction.result2 != "null" %}
+              <p style="font-size:20px"> {{ diction.result2 }} </p>
+            {% endif %}
+      </form>
+      {% endif %}
+      </center>
+    </div>

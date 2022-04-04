@@ -1,0 +1,40 @@
+<html>
+	<head>
+	{% load static %}
+  		<link rel="stylesheet" href="{% static 'css/mycss.css' %}">
+  		<script type="text/javascript" src="\static\jss\tender.js"></script>
+  		<style>
+  			select
+			{
+  				width:20%;
+  				height:27px;
+  				font-size:15px;
+			}
+  		</style>
+	</head>
+	<body>
+		{% include '1req_navbar.html' %} 
+
+		<div class="body_home">
+    		<h3 class="bottom-border">Request for a tender</h3>
+    		<p class="font1"> Enter the appopriate details below to request for a tender.</p><br>
+      		<form action="save_tenderreq" method="post">
+      			<input class="textfield width1" placeholder="Project Name" required name="prj_name">
+      			<p class="font2" style="padding:16px;color:#808080">Select Tender Type: <select id="type" name ="t_type"></select> </br></br>
+				Select Tender Category: <select name ="category" id ="category"></select>  </p>
+				<p class="bottom-border" style="padding-top:10px;padding-left:18px;padding-bottom:10px;font-size:19px;color:#808080">State, City: Karnataka, Bangalore</p>
+				<input class="textfield width1" placeholder="Project Description" required name="prj_desc">
+				<input class="textfield width1" placeholder="Registration Price" required name="reg_price" type="number"><br>
+				 <button class="btn" style="width:10%" type="submit"><i class="fa fa-paper-plane"></i> Submit</button>
+			</form>
+		</div>
+		{% if result != "null" %}
+			<p style="font-size:20px"> {{ result }}</p>
+		{% endif %}
+	</body>
+	<script language="javascript">
+		populateTender("type", "category"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+	</script>
+</html>
+      			
+

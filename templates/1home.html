@@ -1,0 +1,107 @@
+<link rel="stylesheet" type="text/css" href="\static\css\haha.css">
+<div class="img">
+  <div class="header">
+      <h1 class="logo">Logo</h1>
+      <ul class="nav">
+        <li><a href="/avail_tender">Available Tenders</a></li>
+        <li><a href="/login">Sign In</a></li>
+  </ul>
+  </div>
+</div>
+<br>
+<br>
+<div class="body-home">
+  <div class="heading-section">
+    <center>
+      <h3> About us </h3>
+    </center>
+    <p>
+      Tenders India was started as a college project which took off to reach greater heights. It was an initiative taken up by four eccentric BCA students to change the way people manage private Tenders. Tenders India aspires to be a one stop destination for companies and individuals looking to request for tenders and contractors looking to bid for the same. Private tenders in India is still a very niche market which our company wishes to tap in. We look forward to fill in the void in the private tender sector. 
+      <br><br><br>
+      Do you have a Tender request? Do you want a wider choice of contractors to choose from?<br>
+      OR Are you a Contractor, looking to bid for the best Tenders in the market? 
+      <br><br><br>
+      Look nowhere else because you have come to the right place. Tenders India, Bridging gap and nurturing opportunities.
+    </p>
+    <br>
+    <br>
+    <br>
+    <center>
+      <h3> Our Team </h3>
+      <p> Our people are very united for your success </p> 
+    </center>
+    <br>
+    <br>
+    <div class="col l3">
+          <img src="\static\img\1.PNG" alt="Abir" style="width:98%">
+          <p style="padding-left:7px">Abir Majumder</p>
+          <p style="padding-left:7px">Front End Designer</p>
+        </div>
+        <div class="col l3">
+          <img src="\static\img\2.JPG" alt="Deeraj" style="width:98%">
+            <p style="padding-left:7px">Deeraj Ramchandani</p>
+            <p style="padding-left:7px">Chief Technical Officer</p>
+        </div>
+        <div class="col l3">
+          <img src="\static\img\3.PNG" alt="Shubhang" style="width:98%">
+            <p style="padding-left:7px">Shubhang Kumar</p>
+            <p style="padding-left:7px">Director</p>
+        </div>
+        <div class="col l3">
+          <img src="\static\img\4.jpg" alt="Varun" style="width:98%">
+            <p style="padding-left:7px">Varun Ajmera</p>
+            <p style="padding-left:7px">Database Designer</p>
+        </div>
+    </div>
+    <h3 style="margin-left:-70px"> Contact us </h3>
+  <center>
+    <p> Send us a message at </p>
+  </center>
+  <div class="googlemap">
+    <div id="googleMap" style="width:100%;height:450px;"></div>
+  </div>
+  <br>
+  <br>
+  <form class="cf" method="post" action="\storefeedback">
+      <div class="half left cf">
+        <input type="text" id="input-name" placeholder="Name" required name="name">
+        <input type="email" id="input-email" placeholder="Email address" required name="email">
+        <input type="text" id="input-subject" placeholder="Subject" required name="subject">
+      </div>
+      <div class="half right cf">
+        <textarea name="message" type="text" id="input-message" placeholder="Message" required></textarea>
+      </div>  
+      <input type="submit" value="Send Message" id="input-submit">
+  </form>
+  <br>
+  <br>
+  
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>  
+// Google Map Location
+    var myCenter = new google.maps.LatLng(12.9361,77.6055);
+
+    function initialize() 
+    {
+      var mapProp = 
+      {
+        center: myCenter,
+        zoom: 12,
+        scrollwheel: false,
+        draggable: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+      var marker = new google.maps.Marker(
+      {
+        position: myCenter,
+      });
+
+      marker.setMap(map);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

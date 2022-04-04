@@ -1,0 +1,61 @@
+<html>
+<head>
+  <link rel="stylesheet" href="\static\css\mycss.css">
+</head>
+<body>
+
+    {% if session.set == 0 %}
+      {% include '1navbar.html' %}
+    {% elif session.set == 1 %}
+      {% include '1con_navbar.html' %}
+    {% elif session.set == 2 %}
+      {% include '1req_navbar.html' %}
+    {% endif %}
+    <!--         closing navbar  -->
+  <div class="body_home">
+    <h3 class="bottom-border">Contact</h3>
+      <p class="font1"> Lets get in touch and talk about yours and our next project. </p><br>
+      <form action="#lol" method="post">
+         <input class="textfield width1" placeholder="Name" required name="name">
+         <input class="textfield width1" placeholder="Email" required name="email">
+         <input class="textfield width1" placeholder="Subject" required name="sub">
+         <input class="textfield width1" placeholder="Comment" required name="comment">
+         <button class="btn" type="submit"><i class="fa fa-paper-plane"></i> Submit feedback </button>
+      </form>
+      <p class="font1"> You can also locate us at... </p><br>
+      <div id="googleMap" style="width:100%;height:450px;"></div>
+
+  </div>
+  <br>
+  {% include '1footer.html' %}
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script>  
+// Google Map Location
+    var myCenter = new google.maps.LatLng(12.9361,77.6055);
+
+    function initialize() 
+    {
+      var mapProp = 
+      {
+        center: myCenter,
+        zoom: 12,
+        scrollwheel: false,
+        draggable: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+      var marker = new google.maps.Marker(
+      {
+        position: myCenter,
+      });
+
+      marker.setMap(map);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+    <!--       closing container div -->
+</body>
+</html>

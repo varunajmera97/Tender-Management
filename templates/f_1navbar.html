@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/mycss.css">
+  </head>
+  {% if session.set == 0 %}
+    <div class="navbar z-depth">
+      <ul style="padding-left: 0px;">
+        <li class="logo"> <a href="\home" target="_normal"><b>Tenders</b> India</a> </li>
+        <section class="div_navbar_items">
+          <li class="navbar_items"><a href="\login" target="_normal"> Login </a> </li>
+          <li class="navbar_items"><a href="\avail_tender" target="_normal"> Available Tender </a> </li>
+        </section>
+      </ul>
+    </div>
+    {% elif session.set == 1 %}
+      <div class="navbar z-depth">
+      <ul style="padding-left: 0px;">
+        <li class="logo"> <a href="\home"><b>Tenders</b> India</a> </li>
+        <section class="div_navbar_items">
+          <li class="navbar_items"><a href="\avail_tender" target="_normal"> Available Tender </a> </li>
+          <li class="navbar_items"><a href="\logout" target="_normal"> Logout </a> </li>
+        </section>
+      </ul>
+    </div>
+    {% elif session.set == 2 %}
+    <div class="navbar z-depth">
+      <ul style="padding-left: 0px;">
+        <li class="logo"> <a href="\home"><b>Tenders</b> India</a> </li>
+        <section class="div_navbar_items">
+          <li class="navbar_items"><a href="\tender_request" target="_normal"> Request for tender </a> </li>
+          <li class="navbar_items"><a href="\logout" target="_normal"> Logout </a> </li>
+        </section>
+      </ul>
+    </div>
+    {% elif session.set == 3 %}
+    <div class="navbar z-depth">
+      <ul style="padding-left: 0px;">
+        <li class="logo"> <a href="\home"><b>Tenders</b> India</a> </li>
+        <section class="div_navbar_items">
+          <li class="navbar_items"><a href="\logout" target="_normal"> Logout </a> </li>
+        </section>
+      </ul>
+    </div>
+    {% endif %}
+</html>
